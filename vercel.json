@@ -10,34 +10,6 @@
       "use": "@vercel/static"
     }
   ],
-  "routes": [
-    {
-      "src": "/",
-      "dest": "/index.html"
-    },
-    {
-      "src": "/assets/css/(.*)",
-      "headers": { "Content-Type": "text/css" },
-      "dest": "/assets/css/$1"
-    },
-    {
-      "src": "/assets/js/(.*)",
-      "headers": { "Content-Type": "application/javascript" },
-      "dest": "/assets/js/$1"
-    },
-    {
-      "src": "/assets/images/(.*)",
-      "dest": "/assets/images/$1"
-    },
-    {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "status": 404,
-      "dest": "/404.html"
-    }
-  ],
   "headers": [
     {
       "source": "/assets/css/(.*)",
@@ -45,6 +17,15 @@
         {
           "key": "Content-Type",
           "value": "text/css"
+        }
+      ]
+    },
+    {
+      "source": "/assets/js/(.*)",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/javascript"
         }
       ]
     },
@@ -57,5 +38,18 @@
         }
       ]
     }
-  ]
+  ],
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/services", "destination": "/services-contact.html" }
+  ],
+  "redirects": [
+    { 
+      "source": "/404",
+      "destination": "/404.html",
+      "statusCode": 404
+    }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
 }
