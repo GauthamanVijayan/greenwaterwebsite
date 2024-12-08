@@ -1,0 +1,12 @@
+{
+    "name": "green-water-website",
+    "version": "1.0.0",
+    "description": "Green Water UAE - Water Delivery Service",
+    "scripts": {
+      "start": "vercel dev",
+      "deploy": "vercel deploy --prod"
+    },
+    "dependencies": {
+      "bootstrap": "^5.3.2"
+    }
+  }

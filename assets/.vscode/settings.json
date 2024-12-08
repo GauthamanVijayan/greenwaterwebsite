@@ -1,0 +1,11 @@
+{
+    "liveServer.settings.CustomHeader": {
+        "Content-Type": "text/css"
+    },
+    "liveServer.settings.mimeTypes": {
+        "css": "text/css",
+        "js": "application/javascript"
+    },
+    "liveServer.settings.donotShowInfoMsg": true,
+    "liveServer.settings.donotVerifyTags": true
+}

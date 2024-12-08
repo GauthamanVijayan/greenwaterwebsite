@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - Green Water UAE</title>
+    
+    <!-- Stylesheets -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/responsive.css" rel="stylesheet">
+
+    <style>
+        .error-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(0, 77, 153, 0.9), rgba(0, 102, 204, 0.9));
+            color: white;
+        }
+
+        .error-icon {
+            font-size: 100px;
+            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .error-page .btn-white {
+            background: white;
+            color: var(--primary-color);
+            padding: 0.8rem 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .error-page .btn-white:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="error-page">
+        <div class="container text-center">
+            <i class="fas fa-water error-icon"></i>
+            <h1 class="display-1 mb-4">404</h1>
+            <h2 class="mb-4">Oops! Page Not Found</h2>
+            <p class="lead mb-5">The page you're looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+            <a href="index.html" class="btn btn-white btn-lg shadow">
+                <i class="fas fa-home me-2"></i>Return Home
+            </a>
+        </div>
+    </div>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/971528545942?text=Hi%20Green%20Water,%20I%20would%20like%20to%20inquire%20about%20water%20delivery" 
+       class="whatsapp-float" 
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
