@@ -1,29 +1,29 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('contactForm');
-    const submitBtn = document.getElementById('submitBtn');
+// document.getElementById('contactForm').addEventListener('submit', function(e) {
+//     e.preventDefault();
+//     if (this.checkValidity()) {
+//         // Form is valid, ready for Web3Forms
+//         alert('Form is valid and ready to submit!');
+//     }
+// });
 
-    form.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-        submitBtn.disabled = true;
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const email = document.getElementById('email').value;
+    const emailRegex = /.+@.+\..+/;  // Simple check for '@' and '.' with content around them
+    
+    if (!emailRegex.test(email)) {
+        document.getElementById('email').classList.add('is-invalid');
+        return;
+    }
+    
+    // If validation passes
+    if (this.checkValidity()) {
+        alert('Form is valid and ready to submit!');
+    }
+});
 
-        try {
-            const response = await fetch(form.action, {
-                method: 'POST',
-                body: new FormData(form)
-            });
-
-            if (response.ok) {
-                form.reset();
-                alert('Message sent successfully!');
-            } else {
-                throw new Error('Failed to send message');
-            }
-        } catch (error) {
-            alert('Error sending message. Please try again.');
-        }
-
-        submitBtn.innerHTML = 'Send Message';
-        submitBtn.disabled = false;
-    });
-});   
+// Remove invalid class when user types
+document.getElementById('email').addEventListener('input', function() {
+    this.classList.remove('is-invalid');
+});
