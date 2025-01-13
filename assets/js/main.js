@@ -1,6 +1,18 @@
-
-// Main JavaScript File
 document.addEventListener('DOMContentLoaded', function() {
+    // Simple function to set active nav link based on current page
+    const currentPath = window.location.pathname;
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        // Check if we're on home page
+        if ((currentPath === '/' || currentPath.includes('index.html')) && link.getAttribute('href') === 'index.html') {
+            link.classList.add('active');
+        }
+
+    // Call it immediately
+    setActiveNav();
+
     // Navbar scroll behavior
     const navbar = document.querySelector('.navbar');
     if (navbar) {
@@ -26,9 +38,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Close mobile menu if open
                 const navbarCollapse = document.querySelector('.navbar-collapse');
-                if (navbarCollapse.classList.contains('show')) {
+                if (navbarCollapse?.classList.contains('show')) {
                     navbarCollapse.classList.remove('show');
                 }
+
+                // Update active state for navigation
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
             }
         });
     });
@@ -38,41 +56,48 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', navHighlighter);
 
     function navHighlighter() {
-        const scrollY = window.scrollY;
+        if (currentPage.includes('services_contact')) {
+            const scrollY = window.scrollY;
 
-        sections.forEach(section => {
-            const sectionHeight = section.offsetHeight;
-            const sectionTop = section.offsetTop - 100;
-            const sectionId = section.getAttribute('id');
-            const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+            sections.forEach(section => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 100;
+                const sectionId = section.getAttribute('id');
 
-            if (navLink && scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-                navLink.classList.add('active');
-            }
-        });
+                // Check for both direct section links and page-specific section links
+                const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`) || 
+                               document.querySelector(`.nav-link[href="services_contact.html#${sectionId}"]`);
+
+                if (navLink && scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+                    navLink.classList.add('active');
+                }
+            });
+        }
     }
 
     // Image lazy loading
     const images = document.querySelectorAll('img[data-src]');
-    const imageOptions = {
-        threshold: 0,
-        rootMargin: '0px 0px 50px 0px'
-    };
+    if (images.length > 0) {
+        const imageOptions = {
+            threshold: 0,
+            rootMargin: '0px 0px 50px 0px'
+        };
 
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    loadImage(entry.target);
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, imageOptions);
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        loadImage(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, imageOptions);
 
-        images.forEach(img => imageObserver.observe(img));
-    } else {
-        images.forEach(img => loadImage(img));
+            images.forEach(img => imageObserver.observe(img));
+        } else {
+            images.forEach(img => loadImage(img));
+        }
     }
 
     function loadImage(image) {

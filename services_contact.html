@@ -18,59 +18,52 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="assets/images/Green_Water Logo..svg" alt="Green Water Logo" class="logo-svg">
-                <span class="brand-text">
-                    <span class="text-dark">Green</span><span class="text-green">Water</span>
-                </span>
-            </a>
+            <div class="brand-container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/images/Green_Water Logo..svg" alt="Green Water Logo" class="logo-svg">
+                    <div class="brand-text-container">
+                        <span class="brand-text">
+                            <span>Green</span><span>Water</span>
+                        </span>
+                    </div>
+                </a>
+            </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Home</a>
+                        <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="services_contact.html">Services</a>
+                        <a class="nav-link active" href="#services">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="services_contact.html#contact">Contact</a>
+                        <a class="nav-link" href="#contact">Contact</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <div class="page-header py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h1 class="text-white">Our Services & Contact</h1>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html" class="text-white">Home</a></li>
-                            <li class="breadcrumb-item active text-white-50" aria-current="page">Services & Contact</li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Services Section -->
-    <section id="services" class="py-5">
+    <!-- Services Header Section -->
+    <section id="services" class="hero-section">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center mb-5">
-                    <h2>Our Water Delivery Services</h2>
-                    <p class="text-muted">Quality water delivered to your doorstep</p>
+                    <h1 class="display-4 text-white">Our Services</h1>
+                    <p class="lead text-white">Quality water delivered to your doorstep</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Services Content Section -->
+    <section class="services-content py-5 bg-white">
+        <div class="container">
             <div class="row">
                 <!-- Home Delivery Service -->
                 <div class="col-md-6 mb-4">
@@ -106,9 +99,13 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Service Areas -->
-            <div class="row mt-5">
+    <!-- Service Areas Section -->
+    <section class="service-areas py-5 bg-light">
+        <div class="container">
+            <div class="row">
                 <div class="col-12 text-center mb-4">
                     <h2>Service Areas</h2>
                     <p class="text-muted">We deliver across Dubai and Ajman</p>
@@ -144,7 +141,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-5 bg-light">
+    <section id="contact" class="py-5">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center mb-5">
@@ -152,12 +149,96 @@
                     <p class="text-muted">Get in touch for orders and inquiries</p>
                 </div>
             </div>
-            <div class="row">
-                <!-- Contact Form -->
+
+            <!-- Locations Row -->
+            <div class="row mb-5">
+                <!-- Dubai Branch -->
                 <div class="col-lg-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title mb-4">Dubai Branch</h3>
+                            <div class="contact-info">
+                                <div class="mb-4">
+                                    <h4><i class="fas fa-map-marker-alt text-primary me-2"></i>Location</h4>
+                                    <p>Plot Number 386-0-Naif, Dubai, UAE</p>
+                                    <div class="map-container mt-3">
+                                        <iframe 
+                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d0!2d55.5260848999023!3d25.4389781951904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDI2JzIwLjMiTiA1NcKwMzEnMzMuOSJF!5e0!3m2!1sen!2sae!4v1234567890"
+                                            allowfullscreen="" 
+                                            loading="lazy">
+                                        </iframe>
+                                    </div>
+                                </div>
+                                <div class="contact-details">
+                                    <div class="mb-3">
+                                        <h4><i class="fas fa-phone text-primary me-2"></i>Phone</h4>
+                                        <p><a href="tel:+971528545942">+971 52 854 5942</a></p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <h4><i class="fas fa-envelope text-primary me-2"></i>Email</h4>
+                                        <p><a href="mailto:greenwateruae1@gmail.com">greenwateruae1@gmail.com</a></p>
+                                    </div>
+                                    <div class="contact-buttons">
+                                        <a href="https://wa.me/971528545942" class="btn btn-success me-2">
+                                            <i class="fab fa-whatsapp me-2"></i>WhatsApp
+                                        </a>
+                                        <a href="tel:+971528545942" class="btn btn-primary">
+                                            <i class="fas fa-phone me-2"></i>Call
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ajman Branch -->
+                <div class="col-lg-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title mb-4">Ajman Branch </h3>
+                            <div class="contact-info">
+                                <div class="mb-4">
+                                    <h4><i class="fas fa-map-marker-alt text-primary me-2"></i>Location</h4>
+                                    <p>Location details will be updated soon</p>
+                                    <div class="map-container mt-3">
+                                        <iframe 
+                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d0!2d55.5418014526367!3d25.429105758667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDI1JzQ0LjgiTiA1NcKwMzInMzAuNSJF!5e0!3m2!1sen!2sae!4v1234567890"
+                                            allowfullscreen="" 
+                                            loading="lazy">
+                                        </iframe>
+                                    </div>
+                                </div>
+                                <div class="contact-details">
+                                    <div class="mb-3">
+                                        <h4><i class="fas fa-phone text-primary me-2"></i>Phone</h4>
+                                        <p>Coming Soon</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <h4><i class="fas fa-envelope text-primary me-2"></i>Email</h4>
+                                        <p>ajman@greenwater-uae.com</p>
+                                    </div>
+                                    <div class="contact-buttons">
+                                        <a href="#" class="btn btn-success me-2 disabled">
+                                            <i class="fab fa-whatsapp me-2"></i>WhatsApp
+                                        </a>
+                                        <a href="#" class="btn btn-primary disabled">
+                                            <i class="fas fa-phone me-2"></i>Call
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
                     <div class="card">
                         <div class="card-body">
-                            <h3 class="card-title mb-4">Send Us a Message</h3>
+                            <h3 class="card-title text-center mb-4">Send Us a Message</h3>
                             <form id="contactForm" class="needs-validation" novalidate>
                                 <div class="mb-3">
                                     <label for="name" class="form-label">Full Name *</label>
@@ -179,43 +260,10 @@
                                     <label for="message" class="form-label">Message</label>
                                     <textarea class="form-control" id="message" rows="4"></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Send Message</button>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary px-5">Send Message</button>
+                                </div>
                             </form>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Contact Information -->
-                <div class="col-lg-6">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h3 class="card-title mb-4">Contact Information</h3>
-                            <div class="contact-info">
-                                <div class="mb-4">
-                                    <h4><i class="fas fa-map-marker-alt text-primary me-2"></i>Our Location</h4>
-                                    <p>Plot Number 386-0-Naif, Dubai, UAE</p>
-                                </div>
-                                <div class="mb-4">
-                                    <h4><i class="fas fa-phone text-primary me-2"></i>Phone Number</h4>
-                                    <p><a href="tel:+971528545942">+971 52 854 5942</a></p>
-                                </div>
-                                <div class="mb-4">
-                                    <h4><i class="fas fa-envelope text-primary me-2"></i>Email Address</h4>
-                                    <p><a href="mailto:greenwateruae1@gmail.com">greenwateruae1@gmail.com</a></p>
-                                </div>
-                                <div class="mb-4">
-                                    <h4><i class="fas fa-clock text-primary me-2"></i>Business Hours</h4>
-                                    <p>24/7 Service Available</p>
-                                </div>
-                                <div class="contact-buttons mt-4">
-                                    <a href="https://wa.me/971528545942" class="btn btn-success me-2">
-                                        <i class="fab fa-whatsapp me-2"></i>WhatsApp Us
-                                    </a>
-                                    <a href="tel:+971528545942" class="btn btn-primary">
-                                        <i class="fas fa-phone me-2"></i>Call Us
-                                    </a>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -224,13 +272,13 @@
     </section>
 
     <!-- Footer (Same as index.html) -->
-    <footer class="footer py-5">
+    <footer class="footer py-3">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 mb-4 mb-lg-0">
+                <div class="col-lg-4">
                     <h4 class="text-white">Green Water</h4>
                     <p class="text-white-50">Your trusted water delivery partner in UAE</p>
-                    <div class="social-links mt-3">
+                    <div class="social-links mt-2">
                         <a href="https://wa.me/971528545942" class="text-white me-3">
                             <i class="fab fa-whatsapp fa-lg"></i>
                         </a>
@@ -239,24 +287,26 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-4 mb-4 mb-lg-0">
-                    <h4 class="text-white">Quick Links</h4>
-                    <ul class="list-unstyled footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                <div class="col-lg-4">
+                    <!-- Dubai Location -->
+                    <h4 class="text-white">Dubai Branch</h4>
+                    <ul class="list-unstyled text-white-50">
+                        <li class="mb-1"><i class="fas fa-map-marker-alt me-2"></i>Plot Number 386-0-Naif, Dubai, UAE</li>
+                        <li class="mb-1"><i class="fas fa-phone me-2"></i><a href="tel:+971528545942" class="text-white-50">+971 52 854 5942</a></li>
+                        <li class="mb-1"><i class="fas fa-envelope me-2"></i><a href="mailto:greenwateruae1@gmail.com" class="text-white-50">greenwateruae1@gmail.com</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4">
-                    <h4 class="text-white">Contact Info</h4>
+                    <!-- Ajman Location (Placeholder) -->
+                    <h4 class="text-white">Ajman Branch</h4>
                     <ul class="list-unstyled text-white-50">
-                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i>Plot Number 386-0-Naif, Dubai, UAE</li>
-                        <li class="mb-2"><i class="fas fa-phone me-2"></i><a href="tel:+971528545942" class="text-white-50">+971 52 854 5942</a></li>
-                        <li class="mb-2"><i class="fas fa-envelope me-2"></i><a href="mailto:greenwateruae1@gmail.com" class="text-white-50">greenwateruae1@gmail.com</a></li>
+                        <li class="mb-1"><i class="fas fa-map-marker-alt me-2"></i>Coming Soon</li>
+                        <li class="mb-1"><i class="fas fa-phone me-2"></i><a href="tel:#" class="text-white-50">+971 XX XXX XXXX</a></li>
+                        <li class="mb-1"><i class="fas fa-envelope me-2"></i><a href="mailto:#" class="text-white-50">ajman@greenwater-uae.com</a></li>
                     </ul>
                 </div>
             </div>
-            <hr class="my-4 border-light">
+            <hr class="my-3 border-light opacity-25">
             <div class="row">
                 <div class="col-md-12 text-center">
                     <p class="text-white-50 mb-0">&copy; 2024 Green Water. All rights reserved.</p>

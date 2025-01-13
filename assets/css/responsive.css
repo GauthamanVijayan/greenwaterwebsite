@@ -1,61 +1,56 @@
-/* Responsive CSS */
-
-/* Extra Large Devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
+/* Tablet and Larger */
+@media (min-width: 992px) {
     .container {
         max-width: 1140px;
     }
-    
-    .hero-section {
-        min-height: 600px;
-    }
 }
 
-/* Large Devices (desktops, less than 1200px) */
-@media (max-width: 1199.98px) {
-    .hero-section {
-        padding: 80px 0;
-    }
-
-    .hero-section h1 {
-        font-size: 2.5rem;
-    }
-}
-
-/* Medium Devices (tablets, less than 992px) */
+/* Tablet and Smaller */
 @media (max-width: 991.98px) {
-    /* Navigation */
-    .navbar-nav {
-        padding: 1rem 0;
+    .navbar-collapse {
+        background: linear-gradient(to right, var(--brand-blue), var(--brand-green));
+        padding: 1rem;
+        margin-top: 0.5rem;
+        border-radius: 4px;
     }
 
-    .nav-link {
-        padding: 0.5rem 0 !important;
-    }
-
-    .nav-link.active {
-        border-bottom: none;
-        color: var(--accent-color) !important;
-    }
-
-    /* Hero Section */
     .hero-section {
         padding: 60px 0;
-        text-align: center;
     }
 
     .hero-section img {
         margin-top: 2rem;
     }
 
-    /* Cards */
-    .service-card {
-        margin-bottom: 1.5rem;
+    .location-section .map-container {
+        margin-top: 2rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 767.98px) {
+    /* Typography */
+    h1 { font-size: 2rem !important; }
+    h2 { font-size: 1.75rem !important; }
+    
+    /* Branding */
+    .brand-text {
+        font-size: 1.5rem;
+    }
+    
+    .logo-svg {
+        height: 35px;
     }
 
-    /* Contact Section */
-    .contact-info {
-        margin-top: 2rem;
+    /* Sections */
+    .hero-section {
+        text-align: center;
+        padding: 40px 0;
+    }
+
+    .feature-icon {
+        width: 60px;
+        height: 60px;
     }
 
     /* Footer */
@@ -64,168 +59,36 @@
     }
 
     .footer .col-lg-4 {
-        margin-bottom: 2rem;
-    }
-
-    .social-links {
-        justify-content: center;
-    }
-}
-
-/* Small Devices (landscape phones, less than 768px) */
-@media (max-width: 767.98px) {
-    /* Typography */
-    h1 {
-        font-size: 2rem !important;
-    }
-
-    h2 {
-        font-size: 1.75rem !important;
-    }
-
-    h3 {
-        font-size: 1.5rem !important;
-    }
-
-    /* Spacing */
-    .py-5 {
-        padding-top: 3rem !important;
-        padding-bottom: 3rem !important;
+        margin-bottom: 1.5rem;
     }
 
     /* Buttons */
     .hero-buttons .btn {
-        display: block;
         width: 100%;
         margin-bottom: 1rem;
     }
-
-    .hero-buttons .btn:last-child {
-        margin-bottom: 0;
-    }
-
-    /* Cards */
-    .card-body {
-        padding: 1.5rem;
-    }
-
-    /* WhatsApp Float */
-    .whatsapp-float {
-        width: 50px;
-        height: 50px;
-        font-size: 24px;
-        bottom: 15px;
-        right: 15px;
-    }
 }
 
-/* Extra Small Devices (portrait phones, less than 576px) */
+/* Small Mobile */
 @media (max-width: 575.98px) {
-    /* Navigation */
     .navbar-brand {
         font-size: 1.2rem;
     }
 
-    .navbar-brand img {
+    .logo-svg {
         height: 30px;
     }
 
-    /* Hero Section */
-    .hero-section {
-        padding: 40px 0;
-    }
-
-    .hero-section .lead {
-        font-size: 1rem;
-    }
-
-    /* Forms */
-    .form-control {
-        font-size: 16px; /* Prevents iOS zoom on focus */
-    }
-
-    /* Contact Buttons */
-    .contact-buttons .btn {
-        display: block;
-        width: 100%;
-        margin-bottom: 1rem;
-    }
-
-    .contact-buttons .btn:last-child {
-        margin-bottom: 0;
-    }
-
-    /* Footer */
-    .footer {
-        padding: 2rem 0;
-    }
-
-    .footer-links {
-        margin-bottom: 1.5rem;
+    .map-container {
+        height: 300px;
     }
 }
 
-/* Touch Device Optimizations */
+/* Touch Devices */
 @media (hover: none) {
-    /* Remove hover effects on touch devices */
-    .card:hover {
-        transform: none;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Increase touch targets */
     .nav-link,
     .btn,
-    .form-control,
     .whatsapp-float {
         min-height: 44px;
-    }
-
-    /* Improve touch scrolling */
-    .container {
-        -webkit-overflow-scrolling: touch;
-    }
-}
-
-/* Orientation Specific */
-@media (orientation: landscape) and (max-height: 576px) {
-    .hero-section {
-        padding: 30px 0;
-    }
-
-    .navbar {
-        padding: 0.5rem 0;
-    }
-}
-
-/* High DPI Screens */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .hero-section,
-    .page-header {
-        background-image: url('/api/placeholder/2400/1600');
-    }
-}
-
-/* Print Styles */
-@media print {
-    .whatsapp-float,
-    .navbar-toggler,
-    .hero-section {
-        display: none !important;
-    }
-
-    .footer {
-        background: none !important;
-        color: black !important;
-    }
-
-    a {
-        text-decoration: none !important;
-    }
-
-    .card {
-        break-inside: avoid;
-        box-shadow: none;
-        border: 1px solid #ddd;
     }
 }

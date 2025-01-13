@@ -1,104 +1,178 @@
 :root {
-    --primary-color: #0066cc;          /* Deep Blue */
-    --secondary-color: #00a3cc;        /* Light Blue */
-    --accent-color: #00cc99;           /* Turquoise */
-    --dark-blue: #004d99;              /* Darker Blue */
-    --light-blue: #e6f3ff;             /* Very Light Blue */
-    --text-color: #333333;
-    --light-text: #ffffff;
-    --gray-text: #6c757d;
-    --footer-bg: #003366;              /* Dark Blue for Footer */
-    --primary-green: #00965E;          /* Added for brand color */
+    --brand-green: #00a18d;     /* Primary brand color */
+    --brand-dark: #008e7b;      /* Darker shade for hovers */
+    --brand-light: rgba(0, 161, 141, 0.1); /* Light shade for backgrounds */
+    --text-dark: #333333;
+    --text-light: #ffffff;
+    --text-gray: #6c757d;
+    --bg-light: #f8f9fa;
+    --font-primary: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Base Styles */
+body {
+    font-family: var(--font-primary);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+/* Feature Cards Styling */
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 1.5rem;
+    display: block;
+    margin: 0 auto 1.5rem auto;
+}
+
+.features-section .service-card {
+    height: 100%;
+    padding: 1.5rem;
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 0.5px solid var(--brand-green);
+    text-align: center;
+}
+
+.features-section .service-card .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.features-section .service-card h3 {
+    color: var(--brand-green);
+    margin-bottom: 1rem;
+}
+
+.features-section .service-card p {
+    color: var(--text-gray);
 }
 
 /* Navbar and Logo */
 .navbar {
-    background: linear-gradient(to right, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.95));
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 0.75rem 0;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+}
+
+.brand-container {
+    background: white;
+    padding: 8px 15px;
+    border-radius: 8px;
+    border: 0.5px solid var(--brand-green);
 }
 
 .navbar-brand {
     display: flex;
     align-items: center;
     gap: 12px;
+    padding: 0;
+    margin: 0;
 }
 
 .logo-svg {
-    height: 50px;
+    height: 45px;
     width: auto;
 }
 
 .brand-text {
     display: flex;
-    gap: 5px;
-    font-size: 1.8rem;
+    gap: 4px;
+    font-size: 1.6rem;
     font-weight: 600;
 }
 
 .brand-text span:first-child {
-    color: var(--text-color);
+    color: var(--text-dark);
 }
 
 .brand-text span:last-child {
-    color: var(--primary-green);
+    color: var(--brand-green);
 }
 
 /* Navigation Links */
 .navbar-nav .nav-link {
-    color: var(--text-color) !important;
+    color: var(--brand-green) !important;
     font-weight: 500;
     padding: 0.5rem 1rem !important;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
-    color: var(--primary-green) !important;
+    background: var(--brand-light);
+    border-radius: 4px;
 }
 
-/* Feature Section */
-.feature-icon {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-    margin-bottom: 1.5rem;
+/* Hero Section */
+.hero-section {
+    background: var(--brand-green);
+    color: var(--text-light);
+    padding: 80px 0;
+}
+
+/* Services Section */
+#services {
+    background: var(--brand-green);
+    color: var(--text-light);
+    padding: 80px 0;
 }
 
 .service-card {
     height: 100%;
     padding: 1.5rem;
     transition: transform 0.3s ease;
+    border: 0.5px solid var(--brand-green);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .service-card:hover {
     transform: translateY(-5px);
 }
 
-/* Hero Section */
-.hero-section {
-    background: linear-gradient(rgba(0, 77, 153, 0.8), rgba(0, 102, 204, 0.8));
-    background-size: cover;
-    background-position: center;
-    padding: 100px 0;
-    color: var(--light-text);
+.service-card h3 i,
+.text-primary {
+    color: var(--brand-green) !important;
+}
+
+/* Contact Section */
+#contact {
+    background: var(--bg-light);
+    padding: 80px 0;
+}
+
+.map-container {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 250px;
+    border: 0;
+}
+
+/* Buttons */
+.btn-primary {
+    background: var(--brand-green);
+    border-color: var(--brand-green);
+    color: var(--text-light) !important;
+}
+
+.btn-primary:hover {
+    background: var(--brand-dark);
+    border-color: var(--brand-dark);
 }
 
 /* Footer */
 .footer {
-    background-color: var(--footer-bg);
-    color: var(--light-text);
-    padding: 40px 0;
-}
-
-.footer-links a {
-    color: var(--light-text);
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
-}
-
-.footer-links a:hover {
-    opacity: 1;
+    background: linear-gradient(to right, var(--brand-green), var(--brand-dark));
+    color: var(--text-light);
+    padding: 1.5rem 0;
 }
 
 /* WhatsApp Float */
@@ -109,66 +183,36 @@
     background-color: #25D366;
     color: white;
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 30px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    font-size: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     transition: all 0.3s ease;
 }
 
 .whatsapp-float:hover {
     transform: scale(1.1);
-    background-color: #128C7E;
-    color: white;
 }
 
-/* Form Controls */
-.form-control {
-    padding: 0.8rem;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-}
-
-.form-control:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 0.2rem rgba(0, 102, 204, 0.25);
-}
-
-/* Responsive */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
     .brand-text {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
     
     .logo-svg {
-        height: 40px;
+        height: 35px;
     }
     
-    .feature-icon {
-        width: 60px;
-        height: 60px;
+    .navbar-toggler {
+        border-color: var(--brand-green);
     }
     
-    .hero-section {
-        padding: 60px 0;
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 161, 141, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
     }
-}
-
-/* Navbar Toggler (Hamburger Menu) Styling */
-.navbar-toggler {
-    border: 2px solid var(--primary-color);
-    padding: 0.5rem;
-}
-
-.navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 102, 204, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
-}
-
-.navbar-toggler:focus {
-    box-shadow: 0 0 0 0.2rem rgba(0, 102, 204, 0.25);
-    outline: none;
 }
