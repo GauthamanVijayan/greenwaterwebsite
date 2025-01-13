@@ -176,17 +176,17 @@
                                 <div class="contact-details">
                                     <div class="mb-3">
                                         <h4><i class="fas fa-phone text-primary me-2"></i>Phone</h4>
-                                        <p><a href="tel:+971528545942">+971 52 854 5942</a></p>
+                                        <p>+971 52 854 5942</p>
                                     </div>
                                     <div class="mb-3">
                                         <h4><i class="fas fa-envelope text-primary me-2"></i>Email</h4>
-                                        <p><a href="mailto:greenwateruae1@gmail.com">greenwateruae1@gmail.com</a></p>
+                                        <p>ajman@greenwater-uae.com</p>
                                     </div>
                                     <div class="contact-buttons">
-                                        <a href="https://wa.me/971528545942" class="btn btn-success me-2">
+                                        <a href="#" class="btn btn-success me-2 disabled">
                                             <i class="fab fa-whatsapp me-2"></i>WhatsApp
                                         </a>
-                                        <a href="tel:+971528545942" class="btn btn-primary">
+                                        <a href="#" class="btn btn-primary disabled">
                                             <i class="fas fa-phone me-2"></i>Call
                                         </a>
                                     </div>
@@ -237,87 +237,37 @@
                 </div>
             </div>
 
+            <!-- Contact Form -->
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="card">
                         <div class="card-body">
                             <h3 class="card-title text-center mb-4">Send Us a Message</h3>
-                            <form action="https://api.web3forms.com/submit" method="POST" id="contactForm">
-                                <!-- Web3Forms Access Key -->
-                                <input type="hidden" name="access_key" value="YOUR-ACCESS-KEY-HERE">
-                                
-                                <div class="form-group mb-3">
+                            <form id="contactForm" class="needs-validation" novalidate>
+                                <div class="mb-3">
                                     <label for="name" class="form-label">Full Name *</label>
-                                    <input type="text" 
-                                           class="form-control" 
-                                           name="name" 
-                                           id="name" 
-                                           minlength="3"
-                                           pattern="[A-Za-z ]{3,50}"
-                                           title="Please enter at least 3 characters (letters only)"
-                                           required>
+                                    <input type="text" class="form-control" id="name" required>
                                 </div>
-            
-                                <div class="form-group mb-3">
+                                <div class="mb-3">
                                     <label for="email" class="form-label">Email *</label>
-                                    <input type="email" 
-                                           class="form-control" 
-                                           name="email" 
-                                           id="email" 
-                                           required>
+                                    <input type="email" class="form-control" id="email" required>
                                 </div>
-            
-                                <div class="form-group mb-3">
+                                <div class="mb-3">
                                     <label for="phone" class="form-label">Phone Number *</label>
-                                    <input type="tel" 
-                                           class="form-control" 
-                                           name="phone" 
-                                           id="phone"
-                                           pattern="^(?:\+971|00971|0)?(?:50|51|52|55|56|58|2|3|4|6|7|9)\d{7}$"
-                                           title="Please enter a valid UAE phone number"
-                                           required>
-                                    <small class="text-muted">Format: +971XXXXXXXXX or 05XXXXXXXX</small>
+                                    <input type="tel" class="form-control" id="phone" required>
                                 </div>
-            
-                                <div class="form-group mb-3">
-                                    <label for="address" class="form-label">Delivery Address *</label>
-                                    <textarea class="form-control" 
-                                              name="address" 
-                                              id="address" 
-                                              rows="3" 
-                                              required></textarea>
+                                <div class="mb-3">
+                                    <label for="address" class="form-label">Delivery Address</label>
+                                    <textarea class="form-control" id="address" rows="3"></textarea>
                                 </div>
-            
-                                <div class="form-group mb-3">
+                                <div class="mb-3">
                                     <label for="message" class="form-label">Message</label>
-                                    <textarea class="form-control" 
-                                              name="message" 
-                                              id="message" 
-                                              rows="4"></textarea>
+                                    <textarea class="form-control" id="message" rows="4"></textarea>
                                 </div>
-            
                                 <div class="text-center">
-                                    <button type="submit" 
-                                            class="btn btn-primary px-5" 
-                                            id="submitBtn" 
-                                            disabled>Send Message</button>
+                                    <button type="submit" class="btn btn-primary px-5">Send Message</button>
                                 </div>
                             </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Success Modal -->
-            <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title text-success">Message Sent!</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                        </div>
-                        <div class="modal-body">
-                            <p>Thank you for contacting Green Water. We'll get back to you shortly!</p>
                         </div>
                     </div>
                 </div>
