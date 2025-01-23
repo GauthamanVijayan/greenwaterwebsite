@@ -1,24 +1,5 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "*.html",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "assets/**",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/assets/(.*)",
-      "dest": "/assets/$1",
-      "headers": {
-        "cache-control": "public, max-age=31536000, immutable"
-      }
-    }
-  ],
   "headers": [
     {
       "source": "/assets/css/(.*)",
@@ -60,12 +41,5 @@
     }
   ],
   "cleanUrls": true,
-  "trailingSlash": false,
-  "git": {
-    "deploymentEnabled": {
-      "main": true,
-      "version1": true,
-      "version2": true
-    }
-  }
+  "trailingSlash": false
 }
