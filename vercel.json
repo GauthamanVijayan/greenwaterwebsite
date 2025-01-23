@@ -60,5 +60,12 @@
     }
   ],
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "git": {
+    "deploymentEnabled": {
+      "main": true,
+      "version1": true,
+      "version2": true
+    }
+  }
 }
