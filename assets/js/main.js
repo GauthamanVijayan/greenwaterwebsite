@@ -1,109 +1,76 @@
+// Wait for the document to be fully loaded before setting up event handlers
 document.addEventListener('DOMContentLoaded', function() {
-    // Simple function to set active nav link based on current page
-    const currentPath = window.location.pathname;
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        // Check if we're on home page
-        if ((currentPath === '/' || currentPath.includes('index.html')) && link.getAttribute('href') === 'index.html') {
-            link.classList.add('active');
-        }
+    // Find our contact form by its ID
+    const contactForm = document.getElementById('contactForm');
 
-    // Call it immediately
-    setActiveNav();
+    // Only proceed if we found the form
+    if (contactForm) {
+        // Listen for when the form is submitted
+        contactForm.addEventListener('submit', async function(event) {
+            // Prevent the form from submitting in the traditional way
+            // This is crucial to avoid the Web3Forms success page
+            event.preventDefault();
 
-    // Navbar scroll behavior
-    const navbar = document.querySelector('.navbar');
-    if (navbar) {
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 50) {
-                navbar.classList.add('navbar-scrolled');
-            } else {
-                navbar.classList.remove('navbar-scrolled');
+            // Get our submit button to show loading state
+            const submitButton = document.getElementById('submitBtn');
+            submitButton.disabled = true;
+            submitButton.innerHTML = 'Sending...';
+
+            try {
+                // Create a FormData object that contains all our form fields
+                const formData = new FormData(this);
+
+                // Send the form data to Web3Forms using fetch
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                // Parse the JSON response from Web3Forms
+                const result = await response.json();
+
+                if (result.success) {
+                    // The form was submitted successfully
+
+                    // First clear the form
+                    this.reset();
+
+                    // Show a temporary success message
+                    const successAlert = document.createElement('div');
+                    successAlert.className = 'alert alert-success mt-3';
+                    successAlert.innerHTML = `
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-check-circle me-2"></i>
+                            <span>Message sent successfully! Redirecting...</span>
+                        </div>
+                    `;
+                    this.appendChild(successAlert);
+
+                    // Redirect to our success page after a brief delay
+                    // This delay lets users see the success message
+                    setTimeout(() => {
+                        window.location.href = 'success.html';
+                    }, 1500);
+                } else {
+                    // Handle unsuccessful submission
+                    throw new Error('Submission failed');
+                }
+            } catch (error) {
+                // Show error message if something goes wrong
+                const errorAlert = document.createElement('div');
+                errorAlert.className = 'alert alert-danger mt-3';
+                errorAlert.innerHTML = `
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-exclamation-circle me-2"></i>
+                        <span>There was an error sending your message. Please try again.</span>
+                    </div>
+                `;
+                this.appendChild(errorAlert);
+            } finally {
+                // Always re-enable the submit button
+                submitButton.disabled = false;
+                submitButton.innerHTML = 'Send Message';
             }
         });
-    }
-
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-
-                // Close mobile menu if open
-                const navbarCollapse = document.querySelector('.navbar-collapse');
-                if (navbarCollapse?.classList.contains('show')) {
-                    navbarCollapse.classList.remove('show');
-                }
-
-                // Update active state for navigation
-                document.querySelectorAll('.nav-link').forEach(link => {
-                    link.classList.remove('active');
-                });
-                this.classList.add('active');
-            }
-        });
-    });
-
-    // Add active class to nav items based on scroll position
-    const sections = document.querySelectorAll('section[id]');
-    window.addEventListener('scroll', navHighlighter);
-
-    function navHighlighter() {
-        if (currentPage.includes('services_contact')) {
-            const scrollY = window.scrollY;
-
-            sections.forEach(section => {
-                const sectionHeight = section.offsetHeight;
-                const sectionTop = section.offsetTop - 100;
-                const sectionId = section.getAttribute('id');
-
-                // Check for both direct section links and page-specific section links
-                const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`) || 
-                               document.querySelector(`.nav-link[href="services_contact.html#${sectionId}"]`);
-
-                if (navLink && scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                    document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-                    navLink.classList.add('active');
-                }
-            });
-        }
-    }
-
-    // Image lazy loading
-    const images = document.querySelectorAll('img[data-src]');
-    if (images.length > 0) {
-        const imageOptions = {
-            threshold: 0,
-            rootMargin: '0px 0px 50px 0px'
-        };
-
-        if ('IntersectionObserver' in window) {
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        loadImage(entry.target);
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, imageOptions);
-
-            images.forEach(img => imageObserver.observe(img));
-        } else {
-            images.forEach(img => loadImage(img));
-        }
-    }
-
-    function loadImage(image) {
-        if (image.dataset.src) {
-            image.src = image.dataset.src;
-            delete image.dataset.src;
-        }
     }
 });

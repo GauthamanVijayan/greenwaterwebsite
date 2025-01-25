@@ -234,6 +234,92 @@ body {
     margin-top: 0.25rem;
 }
 
+.success-section {
+    min-height: calc(100vh - 200px);
+    display: flex;
+    align-items: center;
+    padding: 4rem 0;
+    background: linear-gradient(135deg, var(--brand-light) 0%, rgba(255,255,255,1) 100%);
+}
+
+.success-card {
+    background: white;
+    border-radius: 10px;
+    padding: 3rem 2rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--brand-green);
+}
+
+.success-icon {
+    font-size: 4rem;
+    color: var(--brand-green);
+    margin-bottom: 1.5rem;
+    animation: scaleIn 0.5s ease-out;
+}
+
+.success-card h1 {
+    color: var(--brand-green);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.success-card .lead {
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.success-actions {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.success-actions .btn {
+    min-width: 200px;
+    padding: 0.75rem 1.5rem;
+}
+
+.contact-info {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 1.5rem;
+    margin-top: 2rem;
+}
+
+.quick-contacts {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.contact-link {
+    color: var(--brand-green);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+    color: var(--brand-dark);
+}
+
+@keyframes scaleIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
 /* Media Queries */
 @media (max-width: 768px) {
     .brand-text {
@@ -286,5 +372,22 @@ body {
 
     .features-section .service-card h3 {
         font-size: 1.2rem;
+    }
+
+    .success-actions {
+        flex-direction: column;
+    }
+    
+    .success-card {
+        padding: 2rem 1rem;
+    }
+    
+    .success-icon {
+        font-size: 3rem;
+    }
+    
+    .quick-contacts {
+        flex-direction: column;
+        gap: 0.75rem;
     }
 }
